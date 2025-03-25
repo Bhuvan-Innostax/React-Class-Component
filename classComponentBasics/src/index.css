@@ -13,11 +13,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-classBlock{
-  display: flex;
-  text-align: center;
-  justify-content: center;
-}
 
 a {
   font-weight: 500;

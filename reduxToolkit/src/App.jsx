@@ -1,35 +1,84 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// Class Component
 
-function App() {
-  const [count, setCount] = useState(0)
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { increase,decrease } from './redux/Actions'
 
-  return (
-    <>
+class App extends Component {
+  render() {
+    return (
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1>Counter : {this.props.count}</h1>
+        <button onClick={() => {this.props.increase()}}>Increase</button>
+        
+        <button onClick={() => {this.props.decrease()}}>Decrease</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    )
+  }
 }
 
-export default App
+  const mapState = (state) => ({
+    count : state.counter.count,
+  })
+
+  const mapDispatch = {
+    increase,
+    decrease
+  };
+
+  export default connect(mapState,mapDispatch)(App);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Functional Component 
+
+
+// import React from 'react'
+// import { useSelector, useDispatch } from 'react-redux'
+// import { decrease, increase } from './redux/Actions'
+// import './App.css'
+
+// export default function App() {
+//    console.log(state)
+//   const count = useSelector((state) => state.counter.count)
+//   const dispatch = useDispatch()
+
+//   return (
+//     <div>
+//       <h1>Counter App with Redux Toolkit</h1>
+//       <div><h3>{count}</h3>
+        
+//         <br/>
+//         <button
+//           aria-label="Increment value"
+//           onClick={() => dispatch(increase())}
+//         >
+//           Increment
+//         </button>
+//         <button
+//           aria-label="decrease value"
+//           onClick={() => dispatch(decrease())}
+//         >
+//           decrease
+//         </button>
+//       </div>
+//     </div>
+//   )
+// }
+
+
