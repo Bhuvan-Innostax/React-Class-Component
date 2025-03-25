@@ -22,6 +22,9 @@ export class App extends Component {
       count : this.state.count - 1 
     });
   }
+  componentWillUnmount(){
+    console.log("Component is unmounted")
+  }
   render() {
     return (<div className='classBlock'>
     <h1>React Class Component </h1>
