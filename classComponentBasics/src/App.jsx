@@ -28,7 +28,7 @@ export class App extends Component {
   render() {
     return (<div className='classBlock'>
     <h1>React Class Component </h1>
-      <Counter numbers = {this.state.count} />
+      <Counter numbers = {this.state.count} /> 
       <button onClick={this.increament.bind(this)}> Increase</button>
       <button onClick={() => {this.decreament()}}>Decrease</button>
       </div>
