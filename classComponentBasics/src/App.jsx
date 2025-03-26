@@ -13,7 +13,7 @@ export class App extends Component {
     };
   }
   increament(){
-    this.setState({
+    this.setState({ 
       count : this.state.count + 1
     });
   }
